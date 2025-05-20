@@ -1,0 +1,30 @@
+{
+  "name": "minio-transfer-server",
+  "version": "0.1.0",
+  "description": "A server to transfer files using MinIO storage via the Model Context Protocol (MCP).",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "minio-transfer-server": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "@types/archiver": "^6.0.3",
+    "archiver": "^7.0.1",
+    "minio": "^8.0.5",
+    "tmp-promise": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
